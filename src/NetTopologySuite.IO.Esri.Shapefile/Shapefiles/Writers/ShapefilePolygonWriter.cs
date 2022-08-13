@@ -11,7 +11,7 @@ namespace NetTopologySuite.IO.Esri.Shapefiles.Writers
     /// <summary>
     /// Polygon shapefile writer.
     /// </summary>
-    public class ShapefilePolygonWriter : ShapefileWriter<MultiPolygon>
+    public class ShapefilePolygonWriter : ShapefileWriter<Polygon>
     {
         /// <inheritdoc/>
         public ShapefilePolygonWriter(Stream shpStream, Stream shxStream, Stream dbfStream, ShapeType type, IReadOnlyList<DbfField> fields, Encoding encoding = null)
@@ -29,7 +29,7 @@ namespace NetTopologySuite.IO.Esri.Shapefiles.Writers
         {
         }
 
-        internal override ShpWriter<MultiPolygon> CreateShpWriter(Stream shpStream, Stream shxStream)
+        internal override ShpWriter<Polygon> CreateShpWriter(Stream shpStream, Stream shxStream)
         {
             return new ShpPolygonWriter(shpStream, shxStream, ShapeType);
         }

@@ -19,7 +19,7 @@ namespace NetTopologySuite.IO.Esri
     /// </summary>
     public abstract class Shapefile : ManagedDisposable
     {
-        internal const int FileCode = 9994; // 0x0000270A; 
+        internal const int FileCode = 9994; // 0x0000270A;
         internal const int Version = 1000;
 
         internal const int FileHeaderSize = 100;
@@ -157,6 +157,10 @@ namespace NetTopologySuite.IO.Esri
             else if (type.IsPolygon())
             {
                 return new ShapefilePolygonWriter(shpPath, type, fields, encoding, projection);
+            }
+            else if (type.IsMultiPolygon())
+            {
+                return new ShapefileMultiPolygonWriter(shpPath, type, fields, encoding, projection);
             }
             else
             {

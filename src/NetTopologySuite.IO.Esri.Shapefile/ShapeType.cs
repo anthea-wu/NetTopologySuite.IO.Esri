@@ -235,8 +235,15 @@ namespace NetTopologySuite.IO.Esri
         /// </summary>
         public static bool IsPolygon(this ShapeType type)
         {
-            return type == ShapeType.Polygon
-                || type == ShapeType.PolygonM
+            return type == ShapeType.Polygon;
+        }
+
+        /// <summary>
+        /// Indicates if shape associated with this type is a Multi Polygon.
+        /// </summary>
+        public static bool IsMultiPolygon(this ShapeType type)
+        {
+            return type == ShapeType.PolygonM
                 || type == ShapeType.PolygonZM
                 || type == ShapeType.PolygonZ;
         }
