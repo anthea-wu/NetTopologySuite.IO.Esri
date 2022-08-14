@@ -12,7 +12,7 @@ namespace NetTopologySuite.IO.Esri.Shp.Writers
         /// <inheritdoc/>
         public ShpMultiPolygonWriter(Stream shpStream, Stream shxStream, ShapeType type) : base(shpStream, shxStream, type)
         {
-            if (!ShapeType.IsPolygon())
+            if (!ShapeType.IsMultiPolygon())
                 ThrowUnsupportedShapeTypeException();
         }
 
